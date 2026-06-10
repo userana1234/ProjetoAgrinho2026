@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgroTech - Agronomia Sustentável</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">🌱 AgroTech</div>
+
+    <div class="menu">
+        <a href="#sobre">Sobre</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#dicas">Dicas</a>
+    </div>
+
+    <button id="themeBtn">🌙</button>
+</nav>
+
+<section class="hero">
+
+    <h1>Agronomia Sustentável</h1>
+
+    <p>
+        Ciência, inovação e tecnologia impulsionando a produção agrícola
+        com responsabilidade ambiental.
+    </p>
+
+    <a href="#sobre">
+        <button class="btn">
+            Explorar
+        </button>
+    </a>
+
+</section>
+
+<section id="sobre" class="container reveal">
+
+    <h2 class="section-title">
+        A Agronomia em Números
+    </h2>
+
+    <div class="stats">
+
+        <div class="stat">
+            <span class="counter" data-target="150">0</span>
+            <p>Culturas Agrícolas</p>
+        </div>
+
+        <div class="stat">
+            <span class="counter" data-target="500">0</span>
+            <p>Projetos Sustentáveis</p>
+        </div>
+
+        <div class="stat">
+            <span class="counter" data-target="100">0</span>
+            <p>% Tecnologia</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="galeria" class="container reveal">
+
+    <h2 class="section-title">
+        Galeria Agrícola
+    </h2>
+
+    <div class="gallery">
+
+        <div class="card">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Corncobs.jpg/800px-Corncobs.jpg" alt="Milho">
+
+            <p class="image-credit">
+                📷 Wikimedia Commons
+            </p>
+
+            <div class="card-content">
+                <h3>Produção de Milho</h3>
+                <p>Uma das culturas mais importantes do planeta.</p>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Soybean.USDA.jpg/800px-Soybean.USDA.jpg" alt="Soja">
+
+            <p class="image-credit">
+                📷 Wikimedia Commons
+            </p>
+
+            <div class="card-content">
+                <h3>Soja</h3>
+                <p>Grande importância econômica e alimentar.</p>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Tractor_plowing.jpg/800px-Tractor_plowing.jpg" alt="Trator">
+
+            <p class="image-credit">
+                📷 Wikimedia Commons
+            </p>
+
+            <div class="card-content">
+                <h3>Mecanização</h3>
+                <p>Tecnologia moderna aplicada ao campo.</p>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Irrigation_system.jpg/800px-Irrigation_system.jpg" alt="Irrigação">
+
+            <p class="image-credit">
+                📷 Wikimedia Commons
+            </p>
+
+            <div class="card-content">
+                <h3>Irrigação</h3>
+                <p>Eficiência no uso dos recursos hídricos.</p>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Wheat_close-up.JPG/800px-Wheat_close-up.JPG" alt="Trigo">
+
+            <p class="image-credit">
+                📷 Wikimedia Commons
+            </p>
+
+            <div class="card-content">
+                <h3>Trigo</h3>
+                <p>Essencial para a alimentação mundial.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="dicas" class="container reveal">
+
+    <h2 class="section-title">
+        Dicas Agronômicas
+    </h2>
+
+    <div class="tip-area">
+
+        <button class="btn" id="tipBtn">
+            Gerar Dica 🌾
+        </button>
+
+        <div id="tipBox">
+            Clique para gerar uma dica.
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <h3>🌱 AgroTech</h3>
+
+    <p>
+        Agronomia, sustentabilidade e inovação para o futuro.
+    </p>
+
+</footer>
+
+<div id="modal">
+    <img id="modalImg" alt="">
+</div>
+
+<button id="topBtn">↑</button>
+
+<script src="script.js"></script>
+
+</body>
+</html>
