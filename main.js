@@ -1,45 +1,47 @@
-// Tema escuro com salvamento
+document.addEventListener("DOMContentLoaded", () => {
+
+
+// =====================
+// TEMA ESCURO
+// =====================
 
 const themeBtn = document.getElementById("themeBtn");
 
-if(localStorage.getItem("theme") === "dark"){
-    document.body.classList.add("dark");
-    themeBtn.textContent = "☀️";
+if (themeBtn) {
+
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
+        themeBtn.textContent = "☀️";
+    }
+
+    themeBtn.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark");
+
+        const dark =
+            document.body.classList.contains("dark");
+
+        themeBtn.textContent = dark ? "☀️" : "🌙";
+
+        localStorage.setItem("theme", dark ? "dark" : "light");
+    });
 }
 
-themeBtn.addEventListener("click", () => {
 
-    document.body.classList.toggle("dark");
+// =====================
+// CONTADORES
+// =====================
 
-    const dark =
-    document.body.classList.contains("dark");
+const counters = document.querySelectorAll(".counter");
 
-    themeBtn.textContent =
-    dark ? "☀️" : "🌙";
-
-    localStorage.setItem(
-        "theme",
-        dark ? "dark" : "light"
-    );
-});
-
-// Contadores
-
-const counters =
-document.querySelectorAll(".counter");
-
-const observer =
-new IntersectionObserver(entries => {
+const observer = new IntersectionObserver(entries => {
 
     entries.forEach(entry => {
 
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
 
-            const counter =
-            entry.target;
-
-            const target =
-            +counter.dataset.target;
+            const counter = entry.target;
+            const target = +counter.dataset.target;
 
             let count = 0;
 
@@ -47,19 +49,15 @@ new IntersectionObserver(entries => {
 
                 count += Math.ceil(target / 100);
 
-                if(count < target){
-
+                if (count < target) {
                     counter.innerText = count;
                     requestAnimationFrame(update);
-
-                }else{
-
+                } else {
                     counter.innerText = target;
                 }
             };
 
             update();
-
             observer.unobserve(counter);
         }
     });
@@ -68,76 +66,78 @@ new IntersectionObserver(entries => {
 
 counters.forEach(c => observer.observe(c));
 
-// Dicas
+
+// =====================
+// DICAS
+// =====================
 
 const dicas = [
     "Realize análises periódicas do solo para corrigir deficiências nutricionais.",
     "Adote a rotação de culturas para reduzir pragas e melhorar a fertilidade.",
-    "Monitore constantemente a ocorrência de doenças e insetos na lavoura.",
-    "Utilize sistemas de irrigação eficientes para evitar desperdícios de água.",
-    "Invista em agricultura de precisão para otimizar insumos e aumentar a produtividade.",
-    "Mantenha cobertura vegetal para proteger o solo contra erosão.",
-    "Planeje o manejo integrado de pragas para reduzir impactos ambientais.",
-    "Utilize sementes certificadas para garantir maior desempenho produtivo.",
-    "Acompanhe as condições climáticas para tomar decisões mais estratégicas.",
-    "Promova práticas sustentáveis que conciliem produtividade e preservação ambiental."
+    "Utilize irrigação eficiente para economizar água.",
+    "Invista em agricultura de precisão para aumentar produtividade.",
+    "Mantenha cobertura vegetal para proteger o solo.",
 ];
 
-document
-.getElementById("tipBtn")
-.addEventListener("click", () => {
+const tipBtn = document.getElementById("tipBtn");
+const tipBox = document.getElementById("tipBox");
 
-    const dica =
-    dicas[Math.floor(Math.random() * dicas.length)];
+if (tipBtn && tipBox) {
 
-    document.getElementById("tipBox").textContent = dica;
-});
+    tipBtn.addEventListener("click", () => {
 
-// Modal
+        const dica = dicas[Math.floor(Math.random() * dicas.length)];
+        tipBox.textContent = dica;
 
-const modal =
-document.getElementById("modal");
+    });
+}
 
-const modalImg =
-document.getElementById("modalImg");
 
-document
-.querySelectorAll(".card img")
-.forEach(img => {
+// =====================
+// MODAL
+// =====================
 
-    img.addEventListener("click", () => {
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modalImg");
 
-        modal.style.display = "flex";
-        modalImg.src = img.src;
-        modalImg.alt = img.alt;
+if (modal && modalImg) {
+
+    document.querySelectorAll(".card img").forEach(img => {
+
+        img.addEventListener("click", () => {
+
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+
+        });
+
     });
 
-});
-
-modal.addEventListener("click", () => {
-    modal.style.display = "none";
-});
-
-document.addEventListener("keydown", e => {
-
-    if(e.key === "Escape"){
+    modal.addEventListener("click", () => {
         modal.style.display = "none";
-    }
+    });
 
-});
+    document.addEventListener("keydown", e => {
+        if (e.key === "Escape") {
+            modal.style.display = "none";
+        }
+    });
 
-// Reveal
+}
 
-function reveal(){
 
-    document
-    .querySelectorAll(".reveal")
-    .forEach(item => {
+// =====================
+// REVEAL
+// =====================
 
-        const top =
-        item.getBoundingClientRect().top;
+function reveal() {
 
-        if(top < window.innerHeight - 100){
+    document.querySelectorAll(".reveal").forEach(item => {
+
+        const top = item.getBoundingClientRect().top;
+
+        if (top < window.innerHeight - 100) {
             item.classList.add("active");
         }
 
@@ -148,25 +148,31 @@ function reveal(){
 window.addEventListener("scroll", reveal);
 reveal();
 
-// Botão topo
 
-const topBtn =
-document.getElementById("topBtn");
+// =====================
+// BOTÃO TOPO
+// =====================
 
-window.addEventListener("scroll", () => {
+const topBtn = document.getElementById("topBtn");
 
-    topBtn.style.display =
-    window.scrollY > 300
-    ? "block"
-    : "none";
+if (topBtn) {
 
-});
+    window.addEventListener("scroll", () => {
 
-topBtn.addEventListener("click", () => {
+        topBtn.style.display =
+            window.scrollY > 300 ? "block" : "none";
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
     });
+
+    topBtn.addEventListener("click", () => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+}
+
 
 });
