@@ -1,44 +1,72 @@
-// Tema escuro
+// Tema escuro com salvamento
 
 const themeBtn = document.getElementById("themeBtn");
+
+if(localStorage.getItem("theme") === "dark"){
+    document.body.classList.add("dark");
+    themeBtn.textContent = "☀️";
+}
 
 themeBtn.addEventListener("click", () => {
 
     document.body.classList.toggle("dark");
 
+    const dark =
+    document.body.classList.contains("dark");
+
     themeBtn.textContent =
-    document.body.classList.contains("dark")
-    ? "☀️"
-    : "🌙";
+    dark ? "☀️" : "🌙";
+
+    localStorage.setItem(
+        "theme",
+        dark ? "dark" : "light"
+    );
 });
 
 // Contadores
 
-document.querySelectorAll(".counter")
-.forEach(counter => {
+const counters =
+document.querySelectorAll(".counter");
 
-    const target =
-    Number(counter.dataset.target);
+const observer =
+new IntersectionObserver(entries => {
 
-    let count = 0;
+    entries.forEach(entry => {
 
-    function update(){
+        if(entry.isIntersecting){
 
-        count += Math.ceil(target / 100);
+            const counter =
+            entry.target;
 
-        if(count < target){
+            const target =
+            +counter.dataset.target;
 
-            counter.innerText = count;
-            requestAnimationFrame(update);
+            let count = 0;
 
-        }else{
+            const update = () => {
 
-            counter.innerText = target;
+                count += Math.ceil(target / 100);
+
+                if(count < target){
+
+                    counter.innerText = count;
+                    requestAnimationFrame(update);
+
+                }else{
+
+                    counter.innerText = target;
+                }
+            };
+
+            update();
+
+            observer.unobserve(counter);
         }
-    }
+    });
 
-    update();
 });
+
+counters.forEach(c => observer.observe(c));
 
 // Dicas
 
@@ -58,7 +86,7 @@ document
     const dica =
     dicas[Math.floor(Math.random() * dicas.length)];
 
-    document.getElementById("tipBox").innerHTML = dica;
+    document.getElementById("tipBox").textContent = dica;
 });
 
 // Modal
@@ -77,6 +105,7 @@ document
 
         modal.style.display = "flex";
         modalImg.src = img.src;
+        modalImg.alt = img.alt;
     });
 
 });
@@ -85,7 +114,15 @@ modal.addEventListener("click", () => {
     modal.style.display = "none";
 });
 
-// Scroll Reveal
+document.addEventListener("keydown", e => {
+
+    if(e.key === "Escape"){
+        modal.style.display = "none";
+    }
+
+});
+
+// Reveal
 
 function reveal(){
 
@@ -97,21 +134,31 @@ function reveal(){
         item.getBoundingClientRect().top;
 
         if(top < window.innerHeight - 100){
-
             item.classList.add("active");
         }
 
     });
+
 }
 
 window.addEventListener("scroll", reveal);
 reveal();
 
-// Voltar ao topo
+// Botão topo
 
-document
-.getElementById("topBtn")
-.addEventListener("click", () => {
+const topBtn =
+document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+
+    topBtn.style.display =
+    window.scrollY > 300
+    ? "block"
+    : "none";
+
+});
+
+topBtn.addEventListener("click", () => {
 
     window.scrollTo({
         top:0,

@@ -27,7 +27,7 @@ html{
 body{
     background:var(--bg);
     color:var(--text);
-    transition:.4s;
+    transition:.3s;
 }
 
 nav{
@@ -45,18 +45,14 @@ nav{
 
 .logo{
     color:white;
-    font-weight:700;
     font-size:1.4rem;
+    font-weight:700;
 }
 
 .menu a{
     color:white;
     text-decoration:none;
     margin:0 10px;
-}
-
-.menu a:hover{
-    color:#90ee90;
 }
 
 #themeBtn{
@@ -80,7 +76,9 @@ nav{
     background:
     linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
     url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1600");
+
     background-size:cover;
+    background-position:center;
 }
 
 .hero h1{
@@ -96,17 +94,16 @@ nav{
 
 .section-title{
     text-align:center;
-    margin-bottom:40px;
     color:var(--primary);
+    margin-bottom:40px;
 }
 
 .btn{
-    padding:14px 28px;
-    margin-top:20px;
-    border:none;
-    border-radius:30px;
     background:var(--primary);
     color:white;
+    border:none;
+    padding:14px 28px;
+    border-radius:30px;
     cursor:pointer;
 }
 
@@ -120,15 +117,14 @@ nav{
     background:var(--card);
     padding:30px;
     border-radius:15px;
-    text-align:center;
     box-shadow:var(--shadow);
+    text-align:center;
 }
 
 .counter{
-    display:block;
     font-size:3rem;
-    font-weight:bold;
     color:var(--primary);
+    font-weight:bold;
 }
 
 .gallery{
@@ -142,11 +138,6 @@ nav{
     border-radius:18px;
     overflow:hidden;
     box-shadow:var(--shadow);
-    transition:.4s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
 }
 
 .card img{
@@ -159,28 +150,17 @@ nav{
 .image-credit{
     text-align:center;
     padding:10px;
-    font-size:.8rem;
-    color:#666;
-    background:#f1f1f1;
+    background:#eee;
 }
 
 .card-content{
     padding:20px;
 }
 
-.card-content h3{
-    color:var(--primary);
-    margin-bottom:10px;
-}
-
-.tip-area{
-    text-align:center;
-}
-
 #tipBox{
     margin-top:20px;
-    padding:25px;
     background:var(--card);
+    padding:25px;
     border-radius:15px;
     box-shadow:var(--shadow);
 }
@@ -196,9 +176,9 @@ footer{
     display:none;
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.9);
     justify-content:center;
     align-items:center;
+    background:rgba(0,0,0,.9);
     z-index:9999;
 }
 
@@ -209,8 +189,8 @@ footer{
 
 #topBtn{
     position:fixed;
-    right:20px;
     bottom:20px;
+    right:20px;
     width:55px;
     height:55px;
     border:none;
@@ -218,6 +198,7 @@ footer{
     background:var(--primary);
     color:white;
     cursor:pointer;
+    display:none;
 }
 
 .reveal{
