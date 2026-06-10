@@ -71,12 +71,16 @@ counters.forEach(c => observer.observe(c));
 // Dicas
 
 const dicas = [
-    "Faça análise periódica do solo.",
-    "Utilize rotação de culturas.",
-    "Monitore pragas semanalmente.",
-    "Use irrigação eficiente.",
-    "Invista em agricultura de precisão.",
-    "Proteja o solo com cobertura vegetal."
+    "Realize análises periódicas do solo para corrigir deficiências nutricionais.",
+    "Adote a rotação de culturas para reduzir pragas e melhorar a fertilidade.",
+    "Monitore constantemente a ocorrência de doenças e insetos na lavoura.",
+    "Utilize sistemas de irrigação eficientes para evitar desperdícios de água.",
+    "Invista em agricultura de precisão para otimizar insumos e aumentar a produtividade.",
+    "Mantenha cobertura vegetal para proteger o solo contra erosão.",
+    "Planeje o manejo integrado de pragas para reduzir impactos ambientais.",
+    "Utilize sementes certificadas para garantir maior desempenho produtivo.",
+    "Acompanhe as condições climáticas para tomar decisões mais estratégicas.",
+    "Promova práticas sustentáveis que conciliem produtividade e preservação ambiental."
 ];
 
 document
